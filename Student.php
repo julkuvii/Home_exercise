@@ -1,44 +1,38 @@
 <?php
-
-/**
- *
- */
-class Student extends Person
-{
-  private $courses=array();
-  private $credit;
-  
-  function __construct($fn=null, $ln=null, $age=null, $crs=null, $crdt=null)
-  {
-    $this->setFname=$fn;
-    $this->setLname=$ln;
-    $this->setBirth=$age;
-    $this->courses=$crs;
-    $this->credit=$crdt;
-  }
-
-
-
-  public function getCredit()
-  {
-    return $this->credit;
-  }
-
-    public function getCourses()
-    {
-      return $this->courses;
+class Student extends Person {
+    private $selectedCourses;
+    private $creditPoints;
+    function __construct($firstName, $lastName, $yearOfBirth, $selectedCourses, $creditPoints) {
+        parent::__construct($firstName, $lastName, $yearOfBirth);
+        $this->selectedCourses = $selectedCourses;
+        $this->creditPoints = $creditPoints;
     }
 
-  public function setCredit($credits)
-  {
-    $this->credit=$credits;
-  }
+    public function getCourses() {
+        $this->selectedCourses;
+    }
 
-    public function setCourses($param)
-    {
-      array_push($this->courses, $param );
+    public function setCourses() {
+        $this->selectedCourses = $selectedCourses;
+    }
+
+    public function getCredits() {
+        $this->creditPoints;
+    }
+
+    public function setCredits() {
+        $this->creditPoints = $creditPoints;
+    }
+
+    public function printInfo() {
+        $courseArray = "";
+        foreach ($this->selectedCourses as $selectedCourses) {
+            $courseArray .= $selectedCourses. ", ";
+        }
+
+        parent::printInfo();
+        echo "Selected Courses: ".$courseArray. "<br>";
+        echo "Current Study Credits: ".$this->creditPoints. "<br>";
     }
 }
-
-
- ?>
+?>

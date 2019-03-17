@@ -1,39 +1,48 @@
 <?php
-
-abstract class Person
-{
-  private $fname;
-  private $lname;
-  private $birth;
-
-  public function setFname($value)
-    {
-      $this->fname=$value;
+abstract class Person {
+    private $firstName;
+    private $lastName;
+    private $yearOfBirth;
+    function __construct($firstName, $lastName, $yearOfBirth) {
+        $this->firstName = $firstName;
+        $this->lastName = $lastName;
+        $this->yearOfBirth = $yearOfBirth;
     }
 
-    public function setLname($value)
-      {
-        $this->lname=$value;
-      }
-
-      public function setBirth($value)
-        {
-          $this->birth=$value;
-        }
-
-  public function getFname()
-    {
-      return $this->fname;
+    public function getFirstName() {
+        $this->firstName;
     }
 
-    public function getLname()
-      {
-        return $this->lname;
-      }
+    public function setFirstName() {
+        $this->firstName = $firstName;
+    }
 
-      public function getBirth()
-        {
-          return $this->birth;
-        }
+    public function getLastName() {
+        $this->lastName;
+    }
+
+    public function setLastName() {
+        $this->lastName = $lastName;
+    }
+
+    public function getYearOfBirth() {
+        $this->yearOfBirth;
+    }
+
+    public function setYearOfBirth() {
+        $this->yearOfBirth = $yearOfBirth;
+    }
+
+    public function getAge() {
+        $age = 2019 - $this->yearOfBirth;
+        return $age;
+    }
+
+    public function printInfo() {
+        echo "Firstname: ".$this->firstName. "<br>";
+        echo "Lastname: ".$this->lastName. "<br>";
+        echo "Birth Year: ".$this->yearOfBirth. "<br>";
+        echo "Age: ".$this->getAge(). "<br>";
+    }
 }
- ?>
+?>

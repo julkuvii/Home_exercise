@@ -1,43 +1,38 @@
 <?php
-
-/**
- *
- */
-class Teacher extends Person
-{
-  private $subject=array();
-  private $department;
-
-  function __construct($fn=null, $ln=null, $age=null, $sub=null, $dep=null)
-  {
-    $this->setFname=$fn;
-    $this->setLname=$ln;
-    $this->setBirth=$age;
-    $this->subject=$sub;
-    $this->department=$dep;
-  }
-
-
-  public function getDepartment()
-  {
-    return $this->department;
-  }
-
-    public function getSubject()
-    {
-      return $this->subject;
+class Teacher extends Person {
+    private $teachingSubjects;
+    private $department;
+    function __construct($firstName, $lastName, $yearOfBirth, $teachingSubjects, $department) {
+        parent::__construct($firstName, $lastName, $yearOfBirth);
+        $this->teachingSubjects = $teachingSubjects;
+        $this->department = $department;
     }
 
-  public function setDepartment($dprtmnt)
-  {
-    $this->department=$dprtmnt;
-  }
+    public function getSubjects() {
+        $this->teachingSubjects;
+    }
 
-    public function setSubject($subjects)
-    {
-      array_push($this->subject, $subjects);
+    public function setSubjects() {
+        $this->teachingSubjects = $teachingSubjects;
+    }
+
+    public function getDepartment() {
+        $this->deparment;
+    }
+
+    public function setDepartment() {
+        $this->department = $department;
+    }
+
+    public function printInfo() {
+        $subjectArray = "";
+        foreach ($this->teachingSubjects as $teachingSubjects) {
+            $subjectArray .= $teachingSubjects. ", ";
+        }
+
+        parent::printInfo();
+        echo "Subjects: ".$subjectArray. "<br>";
+        echo "Department: ".$this->department. "<br>";
     }
 }
-
-
- ?>
+?>
